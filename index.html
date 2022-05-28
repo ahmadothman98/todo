@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./script/jquery.js"></script>
+    <title>Todos App</title>
+</head>
+<body>
+    <div id="headerDiv" class="header">
+        <h2> TODOs</h2>
+    </div>
+    <div class="top-container">
+        <button id="add-btn" class="todo-btn">Add Todo</button>
+        <form action="" class="add-todo hide">
+            <div class="title">
+                <label for="title_area">Title:</label>
+                <textarea placeholder="Todo Name" name="Title" id="title_area" cols="30" rows="1"></textarea>
+            </div>
+            <div class="description">
+                <label for="desc_area">Description:</label>
+                <textarea placeholder="Todo Description" name="description" id="desc_area" cols="30" rows="4"></textarea>
+            </div>
+            <input type="submit" value="Save Todo" class="todo-btn">
+            <input type="submit" value="Cancel" class="cancel">
+        </form>
+    
+    </div>
+</body>
+</html>

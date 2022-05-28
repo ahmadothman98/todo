@@ -1,0 +1,52 @@
+body{
+    background-color: #EFEFEF;
+}
+.header,.top-container{
+    margin: 2%;
+    background-color: #FFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top-container{
+    padding-top: 2%;
+}
+.add-todo{
+    display: flex;
+    flex-direction: column;
+
+}
+.title,.description{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.cancel{
+    background-color: #cf4020 !important;
+    width: 100px !important;
+    color: #EFE8EF;
+}
+.add-todo input,.todo-btn{
+    width: 120px;
+    background-color: #90E7C6;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    align-self: center;
+    margin: 10px 0;
+
+}
+
+textarea{
+    border: 1px solid #AAA; 
+    color: #888;
+    margin-left: 10px;
+    border-radius: 3px;
+
+/*    background-color: #222;*/
+}
+.hide{
+    display: none;
+}
