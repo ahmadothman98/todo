@@ -2,7 +2,7 @@ body{
     background-color: #EFEFEF;
 }
 .header,.top-container{
-    margin: 2%;
+    margin: 2% 2% 1% 2%;
     background-color: #FFF;
     border-radius: 10px;
     display: flex;
@@ -10,6 +10,7 @@ body{
     align-items: center;
 }
 .top-container{
+    margin-top: 0 !important;
     padding-top: 2%;
 }
 .add-todo{
@@ -49,4 +50,68 @@ textarea{
 }
 .hide{
     display: none;
+}
+.btm-container{
+    margin: 2%;
+    background-color: #FFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+.todo-name p{
+    font-size: 18px;
+    margin: 0 10px;
+
+}
+
+.todo-top{
+    padding: 10px 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.todo-name{
+    display: flex;
+}
+.done-check{
+    margin-right: 10px;
+}
+.todo{
+    background-color: #E8F8EF;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.todo-desc{
+    font-size: 14px;
+    margin-left: 5%;
+    margin-top: 0;
+    color: #555;
+}
+.todo-list,.done-list{
+    list-style: none;
+    padding: 0 ;
+}
+.done{
+    background-color: #999;
+}
+.done .todo-name p,.done .todo-desc{
+    text-decoration: line-through;
+
+}
+.search{
+    margin: 10px;
+}
+.search input{
+    border: 1px solid #E8E8E8;
+    border-radius:5px;
+    height: 30px;
+}
+.title-search-field{
+    margin-right: 20px;
+}
+#submit_search{
+    background-color: #E8F8EF;
+    padding: 0 10px;
 }
