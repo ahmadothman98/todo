@@ -15,17 +15,33 @@
     <div class="top-container">
         <button id="add-btn" class="todo-btn">Add Todo</button>
         <form action="" class="add-todo hide">
-        <div class="title">
-            <label for="title_area">Title:</label>
-            <textarea placeholder="Todo Name" name="Title" id="title_area" cols="30" rows="1"></textarea>
-        </div>
-        <div class="description">
-            <label for="desc_area">Description:</label>
-            <textarea placeholder="Todo Description" name="description" id="desc_area" cols="30" rows="4"></textarea>
-        </div>
-        <input type="submit" value="Save Todo" class="todo-btn">
-        <input type="submit" value="Cancel" class="cancel">
+            <div class="title">
+                <label for="title_area">Title:</label>
+                <textarea placeholder="Todo Name" name="Title" id="title_area" cols="30" rows="1"></textarea>
+            </div>
+            <div class="description">
+                <label for="desc_area">Description:</label>
+                <textarea placeholder="Todo Description" name="description" id="desc_area" cols="30" rows="4"></textarea>
+            </div>
+            <div class="points-select">
+                <div>Points</div>
+                <label for="one">1</label>   
+                <input type="radio" name="points" id="one">
+                <label for="two">2</label> 
+                <input type="radio" name="points" id="two">  
+                <label for="three">3</label>
+                <input type="radio" name="points" id="three">   
+                <label for="four">4</label> 
+                <input type="radio" name="points" id="four">  
+                <label for="five">5</label>   
+                <input type="radio" name="points" id="five">
+            </div>
+
+            <input type="submit" value="Add Todo" class="todo-btn">
+            <input type="submit" value="Cancel" class="cancel" >
         </form>
+
+
         <form class="search">
             <label for="title-search">Search by title:</label>
             <input type="text" name="" id="title_search" class="title-search-field">
@@ -35,6 +51,13 @@
         </form>
     </div>
     <div class="btm-container">
+        <div class="order-div">
+            <label for="select-order">Order By:</label>
+            <select name="" id="select-order">
+                <option value="time">Time</option>
+                <option value="points">Points</option>
+            </select>
+        </div>
         <ul class="todo-list">
             <li>
                 <h3>
