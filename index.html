@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="./script/jquery.js"></script>
-    <title>Todos App</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Todos App</title>
 </head>
 <body>
     <div id="headerDiv" class="header">
         <h2> TODOs</h2>
     </div>
     <div class="top-container">
-        <button id="add-btn" class="todo-btn">Add Todo</button>
-        <form action="" class="add-todo hide">
+        <button id="add_btn" class="todo-btn">Add Todo</button>
+        <form action="" class="add-todo hide" id="todo_form">
             <div class="title">
                 <label for="title_area">Title:</label>
-                <textarea placeholder="Todo Name" name="Title" id="title_area" cols="30" rows="1"></textarea>
+                <textarea placeholder="Todo Name" name="Title" id="title_area" cols="30" rows="1" required></textarea>
             </div>
             <div class="description">
                 <label for="desc_area">Description:</label>
@@ -25,29 +26,20 @@
             </div>
             <div class="points-select">
                 <div>Points</div>
-                <label for="one">1</label>   
-                <input type="radio" name="points" id="one">
-                <label for="two">2</label> 
-                <input type="radio" name="points" id="two">  
-                <label for="three">3</label>
-                <input type="radio" name="points" id="three">   
-                <label for="four">4</label> 
-                <input type="radio" name="points" id="four">  
-                <label for="five">5</label>   
-                <input type="radio" name="points" id="five">
+                <input type="range" min="1" max="5" value="1" class="points-slider" id="points_slider">
             </div>
 
-            <input type="submit" value="Add Todo" class="todo-btn">
-            <input type="submit" value="Cancel" class="cancel" >
+            <button type="submit" class="todo-btn" id="submit_todo">Add Todo</button>
         </form>
 
-
+    </div>
+    <div class="top-container">
         <form class="search">
             <label for="title-search">Search by title:</label>
             <input type="text" name="" id="title_search" class="title-search-field">
             <label for="search-description">Search by description:</label>
             <input type="text" name="" id="title_search">
-            <input type="submit" name="" id="submit_search" value="Search">
+            <input type="submit" name=""  value="Search" onsubmit="searchTodos()">
         </form>
     </div>
     <div class="btm-container">
@@ -58,49 +50,24 @@
                 <option value="points">Points</option>
             </select>
         </div>
-        <ul class="todo-list">
-            <li>
-                <h3>
-                    Todo
-                </h3>
-            </li> 
-            <li class="todo">
-                <div class="todo-top">
-                    <div class="todo-name">
-                        <p> Go Hiking</p>
-                        <p id="point"> 4</p>
-                        <a href="#">Edit</a>
-                    </div>
-                    <div>
-                        <a href="#" class="done-check">Done</a>
-                        <a href="#" class="delete">Delete</a>
-                    </div>
-                </div>
-                <p class="todo-desc">
-                    At jizzin with friends on Monday meet at the spot.
-                </p>
-                
-            </li>
+        <ul class="todo-list" id="todos_list">
+            
         </ul>
-        <div class="done-list">
-            <li>
-                <h3>
-                    Done
-                </h3>
-            </li>
+        <ul class="done-list">
             <li class="todo done">
                 <div class="todo-top">
                     <div class="todo-name">
-                        <p> Go Hiking</p>
                         <p id="point"> 4</p>
-                        <a href="#">Edit</a>
+                        <p> Go Hiking</p>
+                        
+                        <i class="fa-solid fa-pencil"></i>
                     </div>
                     <div>
-                        <a href="#" class="done-check">Done</a>
-                        <a href="#" class="delete">Delete</a>
+                        <input type="checkbox" class="done-btn" checked>
+                        <i class="fa-solid fa-trash-can delete"></i>
                     </div>
                 </div>
-                <p class="todo-desc">
+                <p class="todo-desc hide">
                     At jizzin with friends on Monday meet at the spot.
                 </p>
                 
@@ -108,5 +75,6 @@
         </ul>
         
     </div>
+    <script src="./../js/script.js"></script>
 </body>
 </html>

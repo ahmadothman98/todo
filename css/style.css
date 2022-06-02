@@ -1,5 +1,5 @@
 body{
-    background-color: #607DEB;
+    background-color: #D6CBC3;
     margin: 0;
 }
 .header,.top-container{
@@ -28,13 +28,12 @@ body{
     margin: 10px 0;
 }
 .cancel{
-    background-color: #cf4020 !important;
-    width: 100px !important;
+    background-color: #D8544F !important;
     color: #EFE8EF;
 }
 .todo-btn,.cancel{
     width: 120px;
-    background-color: #AD8CEF;
+    background-color: #3A3E47;
     color: #FFF;
     border: none;
     border-radius: 5px;
@@ -52,13 +51,8 @@ textarea{
 
 /*    background-color: #222;*/
 }
-.hide{
-    display: none;
-}
 .btm-container{
     margin: 2%;
-    background-color: #FFF;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -66,33 +60,37 @@ textarea{
 }
 .todo-name p{
     font-size: 18px;
-    margin: 0 10px;
+    margin: 0 40px;
 
 }
 
 .todo-top{
-    padding: 10px 10px 0 10px;
+    padding: 10px 10px 10px 0;
     display: flex;
     justify-content: space-between;
+    
 }
 .todo-name{
     display: flex;
+}
+.hide{
+    display: none;
 }
 .done-check{
     margin-right: 10px;
 }
 .todo{
-    background-color: #BD9CFF;
-    color: white;
+    background-color: #EEEEEE;
+    color: #333;
     margin-bottom: 10px;
     border-radius: 10px;
-    padding: 5px;
+    position: relative;
 }
 .todo-desc{
     font-size: 14px;
     margin-left: 5%;
     margin-top: 0;
-    color: #DDD;
+    color: #666;
 }
 .todo-list,.done-list{
     list-style: none;
@@ -116,10 +114,58 @@ textarea{
 .title-search-field{
     margin-right: 20px;
 }
+.delete{
+    margin-left: 10px;
+    color: #D8544F;
+}
+.points-slider{
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 72%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: wheat; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    
+}
+.points-slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+.points-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #D6CBC3; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  .points-slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #D6CBC3; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
 #submit_search{
     background-color: #E8F8EF;
     padding: 0 10px;
 }
 #one,#two,#three,#four,#five{
     display: none;
+}
+#point{
+    background-color: #3A3E47;
+    height: 100%;
+    width: 30px;
+    color: whitesmoke;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border-radius: 10px 0 0 10px;
 }
