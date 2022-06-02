@@ -18,26 +18,9 @@ $('#add_btn').click( function(){
 });
 //
 // add todo
-$('#submit_todo').click(function(event){
-    if($('#title_area').val() != ''){//to prevent empty todos
-    var newTodo = todo;
-    newTodo.id = randId();
-    newTodo.title = $('#title_area').val();
-    newTodo.description = $("#desc_area").val();
-    newTodo.point = $('#points_slider').val();
-    newTodo.created_at = new Date();
-    todos_list = JSON.parse(localStorage.getItem('todos_list'));
-    
-        if(todos_list === null){
-            todos_list = [newTodo];
-        }
-        else{
-            todos_list.unshift(newTodo);
+$('#submit_todo').click(function(){
+    addTodo();
 
-        }
-    localStorage.setItem('todos_list',JSON.stringify(todos_list));
-    refereshTodos();
-    }
 });
 
 
@@ -104,7 +87,18 @@ function refereshTodos(){
             ///////////////////////////////////
             var edit_btn = '#edit'+todos_list[i].id;
             $(edit_btn).click(function(){
-                showForm();
+                var edit_todo_id = this.id;
+                edit_todo_id = edit_todo_id.replace('edit','');
+                var id_index = 0;
+                for(i=0;i<todos_list.length;i++){
+                    if(todos_list[i].id==edit_todo_id){
+                        id_index= i;
+                    }
+                }
+                console.log(id_index);
+                updateTodo(id_index);
+                
+
             });
         }
         
@@ -140,7 +134,6 @@ function findIndexOf(li_id){
 
 function showForm(){
     $(".add-todo").toggleClass('hide');
-
     $("#add_btn").toggleClass('cancel');
     if ($("#add_btn").text() === 'Add Todo'){
         $("#add_btn").text("Cancel");
@@ -150,9 +143,49 @@ function showForm(){
     }
 }
 
-function updateTodo(todo_id,todo_index){
-    $(todo_id).click(function(){showForm();
-    $('#submit_todo').text = 'Update';
+function updateTodo(todo_index){
+    showForm();
+    console.log(todo_index);
+    todos_list = JSON.parse(localStorage.getItem('todos_list'));
 
-})
+    $('#submit_todo').text('Update');//change what btn say
+
+    $('#title_area'). val(todos_list[todo_index].title);
+    $("#desc_area").val(todos_list[todo_index].description); 
+    $('#points_slider').val(todos_list[todo_index].point);
+
+    $('#submit_todo').unbind('click');
+    $('#submit_todo').click(function(){
+        todos_list[todo_index].title = $('#title_area').val();
+        todos_list[todo_index].description = $("#desc_area").val();
+        todos_list[todo_index].point = $('#points_slider').val();
+        todos_list[todo_index].created_at = new Date();
+        localStorage.setItem('todos_list',JSON.stringify(todos_list));
+        $('#submit_todo').text('Add Todo');
+        refereshTodos();
+
+    
+    })
+}
+function addTodo(){
+    if($('#title_area').val() != ''){        //to prevent empty todos
+        var newTodo = todo;
+        newTodo.id = randId();
+        newTodo.title = $('#title_area').val();
+        newTodo.description = $("#desc_area").val();
+        newTodo.point = $('#points_slider').val();
+        newTodo.created_at = new Date();
+        todos_list = JSON.parse(localStorage.getItem('todos_list'));
+        
+            if(todos_list === null){
+                todos_list = [newTodo];
+            }
+            else{
+                todos_list.unshift(newTodo);
+    
+            }
+        localStorage.setItem('todos_list',JSON.stringify(todos_list));
+        refereshTodos();
+        }
+        return newTodo.id;
 }
