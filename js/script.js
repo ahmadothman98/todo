@@ -11,21 +11,15 @@ var done_todos = [];
 var todos_list = [];
 refereshTodos();
 
-$('#add_btn').click(function(){
-    $(".add-todo").toggleClass('hide');
-
-    $("#add_btn").toggleClass('cancel');
-    if ($("#add_btn").text() === 'Add Todo'){
-        $("#add_btn").text("Cancel");
-    }
-    else{
-        $("#add_btn").text("Add Todo");
-    }
+$('#add_btn').click( function(){
+    showForm();
+   
 
 });
 //
 // add todo
 $('#submit_todo').click(function(event){
+    if($('#title_area').val() != ''){//to prevent empty todos
     var newTodo = todo;
     newTodo.id = randId();
     newTodo.title = $('#title_area').val();
@@ -33,15 +27,17 @@ $('#submit_todo').click(function(event){
     newTodo.point = $('#points_slider').val();
     newTodo.created_at = new Date();
     todos_list = JSON.parse(localStorage.getItem('todos_list'));
-    if(todos_list === null){
-        todos_list = [newTodo];
-    }
-    else{
-        todos_list.unshift(newTodo);
+    
+        if(todos_list === null){
+            todos_list = [newTodo];
+        }
+        else{
+            todos_list.unshift(newTodo);
 
-    }
+        }
     localStorage.setItem('todos_list',JSON.stringify(todos_list));
     refereshTodos();
+    }
 });
 
 
@@ -64,17 +60,25 @@ function refereshTodos(){
 
 
             }
+            
+            //view description////////////
             $(todo_element).click(function(){
                 $(this).children('.todo-desc').toggleClass('hide');
             })
+            //////////////////////////////
+
+
+            ///delete todo////////////////
             var del_btn = '#del'+todos_list[i].id;
             $(del_btn).click(function(){
                 var li_id = this.id;
                 deleteTodo(li_id);
             });
+            //////////////////////////////
             
+
+            //done or not done///////////////
             var check_select ="#check"+todos_list[i].id;
-            
             $(check_select).change(function(){
                 todos_list = JSON.parse(localStorage.getItem('todos_list'));
                 var changed_id = this.id;
@@ -97,6 +101,11 @@ function refereshTodos(){
                 localStorage.setItem('todos_list',JSON.stringify(todos_list));
                 location.reload();
             })
+            ///////////////////////////////////
+            var edit_btn = '#edit'+todos_list[i].id;
+            $(edit_btn).click(function(){
+                showForm();
+            });
         }
         
     }
@@ -127,4 +136,23 @@ function findIndexOf(li_id){
             return i;
         }
     }
+}
+
+function showForm(){
+    $(".add-todo").toggleClass('hide');
+
+    $("#add_btn").toggleClass('cancel');
+    if ($("#add_btn").text() === 'Add Todo'){
+        $("#add_btn").text("Cancel");
+    }
+    else{
+        $("#add_btn").text("Add Todo");
+    }
+}
+
+function updateTodo(todo_id,todo_index){
+    $(todo_id).click(function(){showForm();
+    $('#submit_todo').text = 'Update';
+
+})
 }
