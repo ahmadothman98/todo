@@ -1,21 +1,33 @@
 body{
     background-color: #D6CBC3;
     margin: 0;
+    font-size: 24px;
+
 }
-.header,.top-container{
+.header{
+    text-align: center;
+}
+.header h1{
+    margin: 0;
+    background-color: whitesmoke;
+    width:fit-content;
+    margin: 10px auto;
+    padding: 0 10px;
+    color: #3A3E47;
+}
+.top-container{
     margin: 2% 2% 1% 2%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.header{
-    color: white;
-}
+
 .top-container{
     background-color: #FFF;
     margin-top: 0 !important;
     padding-top: 2%;
+
 }
 .add-todo{
     display: flex;
@@ -57,9 +69,11 @@ textarea{
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
+    font-size: 24px;
+
 }
 .todo-name p{
-    font-size: 18px;
+    font-size: 28px;
     margin: 0 40px;
 
 }
@@ -87,7 +101,7 @@ textarea{
     position: relative;
 }
 .todo-desc{
-    font-size: 14px;
+    font-size: 24px;
     margin-left: 5%;
     margin-top: 0;
     color: #666;

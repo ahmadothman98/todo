@@ -174,7 +174,6 @@ function addTodo(){
         newTodo.title = $('#title_area').val();
         newTodo.description = $("#desc_area").val();
         newTodo.point = $('#points_slider').val();
-        newTodo.created_at = new Date();
         todos_list = JSON.parse(localStorage.getItem('todos_list'));
         
             if(todos_list === null){
