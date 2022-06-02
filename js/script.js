@@ -59,7 +59,8 @@ function refereshTodos(){
             }
             else{
                 var todo_element = createTodoElement(todos_list[i]);
-                $(".done_list").append(todo_element);
+                $(".done-list").append(todo_element);
+
 
 
             }
@@ -81,7 +82,7 @@ function refereshTodos(){
                 //get index
                 var id_index = 0;
                 for(i=0;i<todos_list.length;i++){
-                    if(todos_list[i].id===changed_id){
+                    if(todos_list[i].id==changed_id){
                         id_index= i;
                     }
                 }
