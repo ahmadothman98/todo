@@ -33,7 +33,7 @@ $('#search_todos').click(function(){
 function randId(){
     return Math.ceil(Math.random() *1000);
 }
-function refereshTodos(todos_list){
+function refereshTodos(){
     todos_list = JSON.parse(localStorage.getItem('todos_list'));
     if(todos_list!=null){
         for(i=0;i<todos_list.length;i++){
@@ -214,7 +214,11 @@ function searchTodos(){
         }
     }
 
-    localStorage.setItem('temp_list',JSON.stringify(todos_list));
-    localStorage.setItem('todos_list',JSON.stringify(search_result));
-    refereshTodos();
+    // localStorage.setItem('temp_list',JSON.stringify(todos_list));
+    // localStorage.setItem('todos_list',JSON.stringify(search_result));
+    // refereshTodos();
+    //the above code not only search but also removes everything else so its not practical
+
+    alert(search_result.length+" todos were found");
+
 }
