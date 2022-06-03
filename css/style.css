@@ -45,13 +45,15 @@ body{
 }
 .todo-btn,.cancel{
     width: 120px;
-    background-color: #3A3E47;
+    background-color: cadetblue;
     color: #FFF;
     border: none;
     border-radius: 5px;
     height: 30px;
     align-self: center;
     margin: 10px 0;
+    font-size: 20px;
+    cursor: pointer;
 
 }
 
@@ -182,4 +184,12 @@ textarea{
     left: 0;
     margin: 0;
     border-radius: 10px 0 0 10px;
+}
+#search_todos{
+    background-color: cadetblue;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
 }

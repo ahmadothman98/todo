@@ -22,13 +22,18 @@ $('#submit_todo').click(function(){
     addTodo();
 
 });
+////////////
 
+//search todos
+$('#search_todos').click(function(){
+    searchTodos();
+})
 
 
 function randId(){
     return Math.ceil(Math.random() *1000);
 }
-function refereshTodos(){
+function refereshTodos(todos_list){
     todos_list = JSON.parse(localStorage.getItem('todos_list'));
     if(todos_list!=null){
         for(i=0;i<todos_list.length;i++){
@@ -162,7 +167,7 @@ function updateTodo(todo_index){
         todos_list[todo_index].created_at = new Date();
         localStorage.setItem('todos_list',JSON.stringify(todos_list));
         $('#submit_todo').text('Add Todo');
-        refereshTodos();
+        refereshTodos(todos_list);
 
     
     })
@@ -184,7 +189,32 @@ function addTodo(){
     
             }
         localStorage.setItem('todos_list',JSON.stringify(todos_list));
-        refereshTodos();
+        refereshTodos(todos_list);
         }
         return newTodo.id;
+}
+function searchTodos(){
+    var search_result = [];
+    todos_list = JSON.parse(localStorage.getItem('todos_list'));
+
+    var title = $("#title_search").val();
+    var desc = $("#desc_search").val();
+    if(title != '' && desc ==''){
+        for(i=0;i<todos_list.length;i++){
+            if((todos_list[i].title).indexOf(title) != -1){
+                search_result.unshift(todos_list[i]);
+            }
+        }
+    }
+    if(desc != '' && title == ''){
+        for(i=0;i<todos_list.length;i++){
+            if((todos_list[i].description).indexOf(desc) != -1){
+                search_result.unshift(todos_list[i]);
+            }
+        }
+    }
+
+    localStorage.setItem('temp_list',JSON.stringify(todos_list));
+    localStorage.setItem('todos_list',JSON.stringify(search_result));
+    refereshTodos();
 }
