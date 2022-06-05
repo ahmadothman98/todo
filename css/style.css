@@ -6,6 +6,7 @@ body{
 }
 .header{
     text-align: center;
+    position: relative;
 }
 .header h1{
     margin: 0;
@@ -192,4 +193,33 @@ textarea{
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.make-body-dark{
+    background-color: #222;
+}
+.make-todo-dark{
+    background-color:#444 !important;
+    color:rgb(239, 239, 239) !important;
+}
+.make-text-dark{ /*actually whiten*/
+    color:rgb(239, 239, 239);
+
+}
+.make-input-dark{
+    background-color: #AAA;
+}
+.fa-sun-bright{
+    width: 100px;
+    height: 100px;
+}
+#night_mode{
+    width: fit-content;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #444;
+}
+.fa-circle-half-stroke{
+
 }

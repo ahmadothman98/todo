@@ -10,25 +10,20 @@ var todo = {
 var done_todos = [];
 var todos_list = [];
 refereshTodos();
-
-$('#add_btn').click( function(){
-    showForm();
-   
-
-});
+checkIfNight();
+$('#add_btn').click(showForm);
 //
 // add todo
-$('#submit_todo').click(function(){
-    addTodo();
-
-});
+$('#submit_todo').click(addTodo);
 ////////////
 
 //search todos
-$('#search_todos').click(function(){
-    searchTodos();
-})
+$('#search_todos').click(searchTodos);
+/////////////
 
+/////night mode
+$('#night_mode').click(toggleNightMode);
+///////////////
 
 function randId(){
     return Math.ceil(Math.random() *1000);
@@ -221,4 +216,50 @@ function searchTodos(){
 
     alert(search_result.length+" todos were found");
 
+}
+
+function toggleNightMode(){
+    var night_mode = localStorage.getItem('night_mode');
+    if(night_mode == 'true'){
+        makeNight();
+        localStorage.setItem('night_mode','false');
+    }
+    else{
+        unmakeNight();
+        localStorage.setItem('night_mode','true');
+
+    }
+
+}
+
+function makeNight(){
+        $('body').addClass('make-body-dark');
+        $('.top-container , .todo, .fa-pencil, h1').addClass('make-todo-dark make-text-dark');
+        $('label,textarea,.fa-circle-half-stroke').addClass('make-text-dark');
+        $('input,textarea').addClass('make-input-dark');
+
+}
+
+function unmakeNight(){
+    $('body').removeClass('make-body-dark');
+    $('.top-container , .todo, .fa-pencil, h1').removeClass('make-todo-dark make-text-dark');
+    $('label,textarea,.fa-circle-half-stroke').removeClass('make-text-dark');
+    $('input,textarea').removeClass('make-input-dark');
+    }
+
+
+function checkIfNight(){
+    if (localStorage.getItem("night_mode") !== null) {
+        var night_mode = localStorage.getItem('night_mode');
+        if(night_mode == 'false'){ //check last session state
+            makeNight(); //if night mode was on, keep night mode
+        }
+        else{
+            unmakeNight();
+        }
+      }
+      else{ //if session is new and no local storage
+          localStorage.setItem("night_mode","true");//make ready for night mode toggle
+      }
+    
 }
